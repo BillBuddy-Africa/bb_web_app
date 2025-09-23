@@ -156,7 +156,7 @@ const SignUp = () => {
                 onChange={handleChange}
                 onBlur={() => validateField("fullName", formData.userName)}
                 className={`w-full rounded-md border border-[#A4A4A4] px-3 py-4 md:py-2.5 text-[16px] outline-none focus:border-2 ${
-                  errors.userName ? "border-red-600" : "focus:border-purple-800"
+                  errors.userName ? "border-red-600" : "focus:border-[#0BCE5A]"
                 }`}
               />
               {errors.userName && (
@@ -180,7 +180,7 @@ const SignUp = () => {
                 onChange={handleChange}
                 onBlur={() => validateField("email", formData.email)}
                 className={`w-full rounded-md border border-[#A4A4A4] px-3 py-4 md:py-2.5 text-[16px] outline-none focus:border-2 ${
-                  errors.email ? "border-red-600" : "focus:border-purple-800"
+                  errors.email ? "border-red-600" : "focus:border-[#0BCE5A]"
                 }`}
               />
               {errors.email && (
@@ -193,7 +193,7 @@ const SignUp = () => {
               className={`  ${
                 errors.phoneNumber
                   ? "border-red-500"
-                  : "focus:border-purple-800"
+                  : "focus:border-[#0BCE5A]"
               }`}
             >
               <label
@@ -241,7 +241,7 @@ const SignUp = () => {
                 onChange={handleChange}
                 onBlur={() => validateField("password", formData.password)}
                 className={`w-full rounded-md border border-[#A4A4A4] px-3 py-4 md:py-2.5 text-[16px] outline-none focus:border-2 ${
-                  errors.password ? "border-red-600" : "focus:border-purple-800"
+                  errors.password ? "border-red-600" : "focus:border-[#0BCE5A]"
                 }`}
               />
               <div
