@@ -90,7 +90,7 @@ const Login = () => {
         />
       </button>
       <div className="bg-white w-[585px] z-20 rounded-[10px]">
-        <div className="flex justify-center my-[3rem] items-center ">
+        <div className="flex justify-center mt-[3rem] mb-[2rem] items-center ">
           <img src={Logo} alt="" />
         </div>
 
@@ -100,9 +100,9 @@ const Login = () => {
           </h2>
           <p className="text-[14px] mt-[5px]">
             Don’t have an account?
-            <a href="#" className="text-[#0BCE5A] ml-[5px]">
+            <NavLink to="/signup" className="text-[#0BCE5A] ml-[5px]">
               Create account
-            </a>
+            </NavLink>
           </p>
 
           <div className="flex flex-col md:mt-[2rem] mt-[1rem]">
@@ -216,7 +216,7 @@ const Login = () => {
               Log In
             </button>
 
-            <div className="hidden flex mt-5 mb-15 items-center justify-center text-[16px]">
+            <div className="hidden mt-5 mb-15 items-center justify-center text-[16px]">
               <p className="font-[500] text-[#27014F]">
                 Don't have an account?
               </p>
