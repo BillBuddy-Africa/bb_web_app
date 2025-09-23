@@ -5,6 +5,13 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center; */
-  font-family: 'Arial', sans-serif;
+  /* font-family: "Arial", sans-serif; */
+  font-family: "Inter", sans-serif;
 }
 
+.inter-font {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
