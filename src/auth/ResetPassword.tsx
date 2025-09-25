@@ -6,15 +6,19 @@ import { useState } from "react";
 import eye_lines from "../assets/Eye_hide_dark.svg";
 import eye from "../assets/Eye_light.svg";
 
-const Login = () => {
+const ResetPassword = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
+    newPassword: "",
+    confirmPassword: "",
   });
   const [errors, setErrors] = useState({
     email: "",
     password: "",
+    newPassword: "",
+    confirmPassword: "",
   });
 
   const togglePasswordVisibility = () => {
@@ -96,41 +100,13 @@ const Login = () => {
 
         <div className=" mb-[4rem]  w-[80%]  mx-auto">
           <h2 className="text-[30px] tracking-[-0.7px] text-[#000000] inter-font">
-            Log in to your account
+            Password Reset
           </h2>
           <p className="text-[14px] mt-[5px]">
-            Don’t have an account?
-            <NavLink to="/signup" className="text-[#0BCE5A] ml-[5px]">
-              Create account
-            </NavLink>
+            Please enter your new password.
           </p>
 
           <div className="flex flex-col md:mt-[2rem] mt-[1rem]">
-            <div className="w-full mb-4">
-              <label
-                htmlFor="email"
-                className="md:hidden block font-semibold mt-2 text-[16px] text-[#8b8989] "
-              >
-                Email Address
-              </label>
-              <input
-                type="email"
-                placeholder="Enter your email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                onBlur={() => validateField("email", formData.email)}
-                className={`py-4 md:p-2.5 px-3  border  text-[16px]  border-[#A4A4A4] w-full focus:border-2  outline-none rounded-md ${
-                  errors.email
-                    ? "border border-red-600"
-                    : "focus:border-[#0BCE5A]"
-                } `}
-              />
-              {errors.email && (
-                <p className="text-red-500 text-[13px] mt-1">{errors.email}</p>
-              )}
-            </div>
-
             <div className="relative w-full">
               <label
                 htmlFor="password "
@@ -140,13 +116,15 @@ const Login = () => {
               </label>
               <input
                 type={isPasswordVisible ? "text" : "password"}
-                placeholder="Password"
-                name="password"
-                value={formData.password}
+                placeholder="New Password"
+                name="newPassword"
+                value={formData.newPassword}
                 onChange={handleInputChange}
-                onBlur={() => validateField("password", formData.password)}
+                onBlur={() =>
+                  validateField("newPassword", formData.newPassword)
+                }
                 className={`py-4 md:py-2.5 px-3   text-[16px] border  border-[#A4A4A4] w-full focus:border-2 outline-none rounded-md ${
-                  errors.password
+                  errors.newPassword
                     ? "border border-red-600"
                     : "focus:border-[#0BCE5A]"
                 } `}
@@ -168,52 +146,51 @@ const Login = () => {
                 )}
               </div>
             </div>
-            {/* {errors.password && (
-              <p className="text-red-500 text-xs mt-1">{errors.password}</p>
-            )}
+            <div className="relative mt-[1rem] w-full">
+              <label
+                htmlFor="password "
+                className="md:hidden font-semibold block mt-2 text-[16px] text-[#8b8989] "
+              >
+                Password
+              </label>
+              <input
+                type={isPasswordVisible ? "text" : "password"}
+                placeholder="Confirm Password"
+                name="confirmPassword"
+                value={formData.confirmPassword}
+                onChange={handleInputChange}
+                onBlur={() =>
+                  validateField("confirmPassword", formData.confirmPassword)
+                }
+                className={`py-4 md:py-2.5 px-3   text-[16px] border  border-[#A4A4A4] w-full focus:border-2 outline-none rounded-md ${
+                  errors.confirmPassword
+                    ? "border border-red-600"
+                    : "focus:border-[#0BCE5A]"
+                } `}
+              />
 
-            {loginError && (
-              <p className="text-red-600 text-[14px]  mt-1">{loginError}</p>
-            )} */}
-
-            <NavLink
-              to="/forgot_password"
-              className="md:text-[13px] text-[16px] text-end cursor-pointer text-[#013114] underline bold-semibold md:mt-[5px] mt-[1rem] mb-[11px]"
-            >
-              Forgot password?
-            </NavLink>
+              <div
+                className={`absolute  cursor-pointer right-[0.8rem]  md:bottom-[0.7rem] bottom-[1rem]
+                  }`}
+                onClick={togglePasswordVisibility}
+              >
+                {isPasswordVisible ? (
+                  <img src={eye} className="w-full h-full" alt="" />
+                ) : (
+                  <img
+                    src={eye_lines}
+                    className=" top-[1.5px]  left-[px]"
+                    alt=""
+                  />
+                )}
+              </div>
+            </div>
 
             <button
               className={`bg-[#0BCE5A] cursor-pointer md:mt-[2rem] md:text-[16px] text-[18px] mt-[1rem] font-semibold text-white md:p-3 p-4  rounded-[10px]   `}
               // disabled={isFormInvalid}
             >
-              {/* {isLoadingLogin ? (
-                  <div className="flex items-center justify-center">
-                    <svg
-                      className="animate-spin h-5 w-5 text-white"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle
-                        className="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                      ></circle>
-                      <path
-                        className="opacity-75"
-                        fill="currentColor"
-                        d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
-                      ></path>
-                    </svg>
-                  </div>
-                ) : (
-                  "Log In"
-                )} */}
-              Log In
+              Submit Password
             </button>
 
             <div className="hidden mt-5 mb-15 items-center justify-center text-[16px]">
@@ -234,4 +211,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ResetPassword;

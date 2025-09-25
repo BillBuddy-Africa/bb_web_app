@@ -2,6 +2,7 @@ import bg from "../assets/background.svg";
 import home from "../assets/home.svg";
 import Logo from "../assets/bb_logo.svg";
 import { useRef, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const ForgotPassword = () => {
   const [formData, setFormData] = useState({
@@ -114,7 +115,7 @@ const ForgotPassword = () => {
     }
   };
 
-    const maskEmail = (email: string) => {
+  const maskEmail = (email: string) => {
     const [name, domain] = email.split("@");
     const maskedName = name[0] + "***" + name.slice(-3);
     return `${maskedName}@${domain}`;
@@ -213,10 +214,10 @@ const ForgotPassword = () => {
                 Verify Account
               </h2>
               <p className="text-[14px] mt-[5px]">
-                   Please enter the code sent to your email{" "}
-                  <span className="text-[#0BCE5A]">
-                    {formData.email && maskEmail(formData.email)}
-                  </span>
+                Please enter the code sent to your email{" "}
+                <span className="text-[#0BCE5A]">
+                  {formData.email && maskEmail(formData.email)}
+                </span>
               </p>
 
               <div className="flex flex-col md:mt-[2rem] mt-[1rem]">
@@ -241,12 +242,19 @@ const ForgotPassword = () => {
                   ))}
                 </div>
 
-                <button
+                <NavLink
+                  to="/reset_password"
+                  className={`bg-[#0BCE5A] text-center cursor-pointer md:mt-[3rem] md:text-[16px] text-[18px] mt-[1rem] font-semibold text-white md:p-3 p-4  rounded-[10px]   `}
+                  // disabled={isFormInvalid}
+                >
+                  Verify Account
+                </NavLink>
+                {/* <button
                   className={`bg-[#0BCE5A] cursor-pointer md:mt-[3rem] md:text-[16px] text-[18px] mt-[1rem] font-semibold text-white md:p-3 p-4  rounded-[10px]   `}
                   // disabled={isFormInvalid}
                 >
                   Verify Account
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
