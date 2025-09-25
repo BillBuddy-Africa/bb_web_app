@@ -177,7 +177,7 @@ const Login = () => {
             )} */}
 
             <NavLink
-              to="/email_for_reset_password"
+              to="/forgot_password"
               className="md:text-[13px] text-[16px] text-end cursor-pointer text-[#27014F] underline bold-semibold md:mt-[5px] mt-[1rem] mb-[11px]"
             >
               Forgot password?

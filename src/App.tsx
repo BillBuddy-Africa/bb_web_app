@@ -5,6 +5,7 @@ import Login from "./auth/Login";
 import SignUp from "./auth/SignUp";
 import DashboardLayout from "./pages/dashboard/DashboardLayout";
 import Dashboard from "./pages/dashboard/Dashboard";
+import ForgotPassword from "./auth/ForgotPassword";
 
 const App = () => {
   return (
@@ -33,7 +34,7 @@ const AppWithRoutes = () => {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        {/* <Route path="/email_for_reset_password" element={<ResetPassword />} /> */}
+        <Route path="/forgot_password" element={<ForgotPassword />} />
         {/* <Route path="/success" element={<RegSuccessful />} /> */}
 
         {/* <Route
