@@ -6,6 +6,7 @@ import SignUp from "./auth/SignUp";
 import DashboardLayout from "./pages/dashboard/DashboardLayout";
 import Dashboard from "./pages/dashboard/Dashboard";
 import ForgotPassword from "./auth/ForgotPassword";
+import ResetPassword from "./auth/ResetPassword";
 
 const App = () => {
   return (
@@ -37,6 +38,7 @@ const AppWithRoutes = () => {
         <Route path="/forgot_password" element={<ForgotPassword />} />
         {/* <Route path="/success" element={<RegSuccessful />} /> */}
 
+        <Route path="/reset_password" element={<ResetPassword />} />
         {/* <Route
           path="/auth-account"
           element={
@@ -74,7 +76,7 @@ const AppWithRoutes = () => {
         > */}
         <Route element={<DashboardLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
-           {/*  <Route path="/referrals" element={<Referals />} />
+          {/*  <Route path="/referrals" element={<Referals />} />
           <Route path="/support" element={<Help />} />
           <Route path="/wallet" element={<Wallet />} />
           <Route path="/crypto" element={<Crypto />}>
