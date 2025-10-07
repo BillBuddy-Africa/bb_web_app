@@ -14,7 +14,7 @@ const NavBar = () => {
   ];
 
   return (
-    <nav className="flex justify-center items-center mb-8">
+    <nav className="flex justify-center items-center mt-6 mb-8">
       {/* White rounded bar */}
       <div className="flex items-center justify-between bg-white rounded-full shadow-md px-8 py-3">
         {/* Nav links */}
