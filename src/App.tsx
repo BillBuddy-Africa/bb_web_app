@@ -3,10 +3,12 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router";
 import Login from "./auth/Login";
 import SignUp from "./auth/SignUp";
-import DashboardLayout from "./pages/dashboard/DashboardLayout";
-import Dashboard from "./pages/dashboard/Dashboard";
+import Dashboard from "./pages/Dashboard";
 import ForgotPassword from "./auth/ForgotPassword";
 import ResetPassword from "./auth/ResetPassword";
+import DashboardLayout from "./layouts/DashboardLayout";
+import Wallet from "./pages/Wallet";
+import Transactions from "./pages/Transactions";
 
 const App = () => {
   return (
@@ -76,19 +78,9 @@ const AppWithRoutes = () => {
         > */}
         <Route element={<DashboardLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
-          {/*  <Route path="/referrals" element={<Referals />} />
-          <Route path="/support" element={<Help />} />
           <Route path="/wallet" element={<Wallet />} />
-          <Route path="/crypto" element={<Crypto />}>
-            <Route path="buycrypto" element={<BuyCrypto />} />
-            <Route path="sellcrypto" element={<SellCrypto />} />
-            <Route path="swapcrypto" element={<SwapCrypto />} />
-          </Route>
-          <Route path="/transactions" element={<Transaction />} />
-          <Route path="/profile" element={<Profile />}>
-            <Route path="account_upgrade" element={<AccountUpgrade />} />
-          </Route>
-          <Route path="/rates" element={<Rates />} /> */}
+          <Route path="/transactions" element={<Transactions />} />
+          {/* More routes */}
         </Route>
       </Routes>
     </>
