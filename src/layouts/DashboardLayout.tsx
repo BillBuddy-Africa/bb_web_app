@@ -5,6 +5,9 @@ import advert from "../assets/advert.svg";
 import walletBG from "../assets/walletBG.svg";
 import TopNavBar from "../components/NavBar";
 import NavBar from "../components/BottomNavBar";
+import arrow from "../assets/arrow_up (2).svg";
+import plus from "../assets/plus (2).svg";
+import eye from "../assets/View_hide_light (2).svg";
 
 export default function DashboardLayout() {
   const location = useLocation();
@@ -20,11 +23,11 @@ export default function DashboardLayout() {
 
       {/* Main Content — perfectly centered */}
       <div className="relative flex items-center justify-center h-[calc(100vh-9rem)]    px-4 mt-[4rem]">
-        <div className="w-full max-w-7xl flex justify-center items-center gap-6">
+        <div className="w-full  max-w-7xl flex justify-center items-center gap-6">
           {isDashboard && (
-            <div className="flex flex-col gap-6">
+            <div className="flex  flex-col gap-6">
               {/* Green Wallet Card */}
-              <div className="relative bg-[#0BCE5A] rounded-2xl p-6 text-white w-[300px] overflow-hidden">
+              <div className="relative bg-[#0BCE5A]  rounded-2xl py-7 px-4 text-white w-[300px] overflow-hidden">
                 {/* Decorative background image */}
                 <img
                   src={walletBG}
@@ -34,62 +37,52 @@ export default function DashboardLayout() {
 
                 {/* Content above image */}
                 <div className="relative z-10">
-                  <h2 className="text-lg font-semibold">Wallet Balance</h2>
-                  <p className="text-3xl font-bold mt-3">₦1,000,250.00</p>
+                    <div>
+                        <div>
+                            <img src={eye} alt="" />
+                        </div>
+                    </div>
+                  <div className="flex justify-center items-center ">
+                    <h2 className="text-[16px]">Wallet Balance</h2>
+                  </div>
+                  <div className="flex justify-center items-center ">
+                    <p className="text-3xl font-bold mt-3">
+                      ₦1,000,250.
+                      <span className="text-[17px] ml-[-1px]">00</span>
+                    </p>
+                  </div>
 
-                  <div className="flex justify-between mt-5">
-                    <button className="bg-white text-green-600 rounded-full px-3 py-1 text-sm font-medium">
-                      + Add Money
+                  <div className="flex gap-4 justify-center mt-5">
+                    <button className="bg-transparent flex justify-center items-center gap-1 cursor-pointer border-white border text-white  rounded-[10px] px-3 py-2 text-sm font-[600]">
+                      <img src={plus} alt="" />
+                      <p> Add Money</p>
                     </button>
-                    <button className="bg-white text-green-600 rounded-full px-3 py-1 text-sm font-medium">
-                      Withdraw
+                    <button className="bg-white text-green-600 flex justify-center items-center cursor-pointer gap-1 rounded-[10px] px-3 py-2 text-[16px] font-[600]">
+                      <p> Withdraw</p>
+                      <img src={arrow} alt="" />
                     </button>
                   </div>
                 </div>
               </div>
 
               {/* Second Green Card */}
-              <img
-                className="w-[300px] h-[180px] object-cover"
-                src={advert}
-                alt=""
-              />
+              <div className=" rounded-3xl shadow-lg flex justify-center items-center">
+                <img className="w-[300px]   object-contain" src={advert} alt="" />
+              </div>
             </div>
           )}
 
           {/* Right white card */}
           <div
-            className={`bg-white rounded-2xl shadow-sm flex-1 p-6 max-w-[900px] ${
+            className={`bg-white rounded-2xl shadow-lg h-full flex-1 p-6 w-full max-w-[900px] ${
               !isDashboard
                 ? "flex justify-center items-center"
-                : "grid grid-cols-3 gap-6"
+                : "flex justify-center items-center"
             }`}
           >
-            {isDashboard ? (
-              [
-                "Crypto",
-                "Gift Card",
-                "Data",
-                "Electricity",
-                "Airtime",
-                "Cable TV",
-                "Betting",
-                "Flight",
-              ].map((service) => (
-                <div
-                  key={service}
-                  className="bg-[#f8f9fb] hover:bg-gray-100 cursor-pointer rounded-xl flex flex-col justify-center items-center py-8"
-                >
-                  <span className="text-lg font-medium text-gray-700">
-                    {service}
-                  </span>
-                </div>
-              ))
-            ) : (
-              <h2 className="text-gray-500 text-2xl font-semibold">
-                Coming Soon 🚀
-              </h2>
-            )}
+            <div className="w-full h-full">
+              <Outlet />
+            </div>
           </div>
         </div>
       </div>
