@@ -172,7 +172,7 @@ export default function DashboardLayout() {
                 : "flex justify-start items-start"
             }`}
           >
-            <div className="w-full h-full overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+            <div className="w-full h-full   overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
               <Outlet />
             </div>
           </div>
