@@ -99,7 +99,7 @@ const Transactions = () => {
       </div>
 
       {/* Scrollable Transactions */}
-      <div className="bg-white border mb-6 border-[#D0DAE6] rounded-3xl p-6 w-[95%] mx-auto h-[400px] overflow-y-auto">
+      <div className="bg-white mb-6  rounded-3xl p-6 w-full mx-auto h-[400px] overflow-y-auto">
         <div>
           {transactions[activeTab].map((t) => (
             <div
