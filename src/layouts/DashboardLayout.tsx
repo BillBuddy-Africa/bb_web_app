@@ -7,11 +7,14 @@ import TopNavBar from "../components/NavBar";
 import NavBar from "../components/BottomNavBar";
 import arrow from "../assets/arrow_up (2).svg";
 import plus from "../assets/plus (2).svg";
+import credit from "../assets/greenarrow_down.svg";
+import debit from "../assets/redarrow_up.svg";
 import eye from "../assets/View_hide_light (2).svg";
 
 export default function DashboardLayout() {
   const location = useLocation();
   const isDashboard = location.pathname === "/dashboard";
+  const isWallet = location.pathname === "/wallet";
 
   return (
     <div className="relative min-h-screen bg-[#f8f9fb] overflow-hidden">
@@ -37,10 +40,10 @@ export default function DashboardLayout() {
 
                 {/* Content above image */}
                 <div className="relative border border-[#0BCE5A] z-10">
-                   <div className="w-10 absolute right-[-7px] top-[-20px] h-10 rounded-full cursor-pointer p-3 bg-[#00A643]  ">
-                      <img src={eye} alt="" />
-                    </div>
-             
+                  <div className="w-10 absolute right-[-7px] top-[-20px] h-10 rounded-full cursor-pointer p-3 bg-[#00A643]  ">
+                    <img src={eye} alt="" />
+                  </div>
+
                   <div className="flex mt-4 justify-center items-center ">
                     <h2 className="text-[16px]">Wallet Balance</h2>
                   </div>
@@ -52,11 +55,11 @@ export default function DashboardLayout() {
                   </div>
 
                   <div className="flex gap-4 justify-center mt-5">
-                    <button className="bg-transparent flex justify-center items-center gap-1 cursor-pointer border-white border text-white  rounded-[10px] px-3 py-2 text-sm font-[600]">
+                    <button className="bg-transparent flex justify-center items-center gap-1 cursor-pointer border-white border text-white  rounded-[10px] px-3 py-2 text-sm">
                       <img src={plus} alt="" />
                       <p> Add Money</p>
                     </button>
-                    <button className="bg-white text-green-600 flex justify-center items-center cursor-pointer gap-1 rounded-[10px] px-3 py-2 text-[16px] font-[600]">
+                    <button className="bg-white text-green-600 flex justify-center items-center cursor-pointer gap-1 rounded-[10px] px-3 py-2 text-[16px] ">
                       <p> Withdraw</p>
                       <img src={arrow} alt="" />
                     </button>
@@ -75,9 +78,95 @@ export default function DashboardLayout() {
             </div>
           )}
 
+          {isWallet && (
+            <div className="flex flex-col gap-6">
+              {/* Green Wallet Card */}
+              <div className="relative bg-[#0BCE5A] rounded-2xl py-7 px-4 text-white w-[300px] overflow-hidden">
+                {/* Decorative background image */}
+                <img
+                  src={walletBG}
+                  alt=""
+                  className="absolute bottom-0 left-0 w-[40%] opacity-40 pointer-events-none"
+                />
+
+                {/* Content above image */}
+                <div className="relative border border-[#0BCE5A] z-10">
+                  <div className="w-10 absolute right-[-7px] top-[-20px] h-10 rounded-full cursor-pointer p-3 bg-[#00A643]">
+                    <img src={eye} alt="" />
+                  </div>
+
+                  <div className="flex mt-4 justify-center items-center">
+                    <h2 className="text-[16px]">Wallet Balance</h2>
+                  </div>
+                  <div className="flex justify-center items-center">
+                    <p className="text-3xl font-bold mt-3">
+                      ₦1,000,250.
+                      <span className="text-[17px] ml-[-1px]">00</span>
+                    </p>
+                  </div>
+
+                  <div className="flex gap-4 justify-center mt-5">
+                    <button className="bg-transparent flex justify-center items-center gap-1 cursor-pointer border-white border text-white rounded-[10px] px-3 py-2 text-sm">
+                      <img src={plus} alt="" />
+                      <p>Add Money</p>
+                    </button>
+                    <button className="bg-white text-green-600 flex justify-center items-center cursor-pointer gap-1 rounded-[10px] px-3 py-2 text-[16px]">
+                      <p>Withdraw</p>
+                      <img src={arrow} alt="" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Second Green Card */}
+              <div className="rounded-3xl min-h-[12rem]  bg-white shadow-lg flex justify-center items-center">
+                <div className="bg-white  rounded-2xl py-5 w-[236px] h-[168px] flex flex-col justify-between">
+                  {/* Top Section */}
+                  <div className="text-center">
+                    <p className="text-gray-500 text-sm mb-1">
+                      Daily Withdrawal Limit
+                    </p>
+                    <h2 className="text-xl font-semibold text-gray-900">
+                      ₦500,000
+                    </h2>
+                  </div>
+
+                  {/* Bottom Section */}
+                  <div className="flex justify-between gap-4  items-center text-sm mt-3">
+                    <div className="flex items-center  gap-1">
+                      <div>
+                        <div className="flex items-center justify-between gap-1">
+                          <img src={credit} alt="" />
+                          <p className="text-gray-500">Total Credit</p>
+                        </div>
+                        <p className="text-green-600  text-right font-semibold">
+                          ₦350,000
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-1">
+                      {/* <XCircle className="text-red-500 w-4 h-4" /> */}
+                      <div>
+                        <div className="flex justify-center items-center gap-1 ">
+                          {" "}
+                          <img src={debit} alt="" />
+                          <p className="text-gray-500">Total Debit</p>
+                        </div>
+                        <p className="text-red-600 text-right font-semibold">
+                          ₦265,000
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Right white card */}
           <div
-            className={`bg-white rounded-2xl h-full shadow-lg flex-1 p-6 w-full max-w-[900px]  overflow-y-auto ${
+            className={`bg-white rounded-2xl h-full shadow-lg flex-1 p-6 w-full max-w-[80%]  overflow-y-auto ${
               !isDashboard
                 ? "flex justify-center items-center"
                 : "flex justify-start items-start"
