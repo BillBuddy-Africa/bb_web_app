@@ -9,6 +9,9 @@ import ResetPassword from "./auth/ResetPassword";
 import DashboardLayout from "./layouts/DashboardLayout";
 import Wallet from "./pages/Wallet";
 import Transactions from "./pages/Transactions";
+import Referral from "./pages/Referral";
+import Profile from "./pages/Profile";
+import Help from "./pages/Help";
 
 const App = () => {
   return (
@@ -80,6 +83,9 @@ const AppWithRoutes = () => {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/wallet" element={<Wallet />} />
           <Route path="/transactions" element={<Transactions />} />
+          <Route path="/referral" element={<Referral />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/support" element={<Help />} />
           {/* More routes */}
         </Route>
       </Routes>
