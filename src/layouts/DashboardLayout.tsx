@@ -10,11 +10,17 @@ import plus from "../assets/plus (2).svg";
 import credit from "../assets/greenarrow_down.svg";
 import debit from "../assets/redarrow_up.svg";
 import eye from "../assets/View_hide_light (2).svg";
+import Background from "../assets/bgB.svg";
+import camera from "../assets/Camera_light.svg";
+import profileImg from "../assets/profile.svg";
+import warning from "../assets/warning.svg";
+import { HiArrowRight } from "react-icons/hi";
 
 export default function DashboardLayout() {
   const location = useLocation();
   const isDashboard = location.pathname === "/dashboard";
   const isWallet = location.pathname === "/wallet";
+  const isProfile = location.pathname === "/profile";
 
   return (
     <div className="relative min-h-screen bg-[#f8f9fb] overflow-hidden">
@@ -160,6 +166,60 @@ export default function DashboardLayout() {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          )}
+          {isProfile && (
+            <div className="flex  h-full flex-col items-center  gap-6">
+              {/* Profile Section */}
+              <div className="relative bg-white  rounded-3xl shadow-md w-[300px] flex flex-col items-center justify-center h-[60%]  overflow-hidden ">
+                <img
+                  src={Background}
+                  alt="background"
+                  className="w-full absolute h-full object-cover"
+                />
+
+                {/* Profile Image */}
+                <div className=" flex  flex-col items-center">
+                  <div className="cursor-pointer relative">
+                    <img
+                      src={profileImg}
+                      alt="Profile"
+                      className="w-24 h-24 cursor-pointer rounded-full border-4 border-white object-cover"
+                    />
+                    {/* Camera Overlay */}
+                    <div className="absolute bottom-[1.7rem] right-[1.8rem] rounded-full ">
+                      <img src={camera} alt="Camera Icon" className="" />
+                    </div>
+                  </div>
+                  <div className=" text-center ">
+                    <h2 className="font-semibold text-lg text-gray-800">
+                      Samuel Oghene
+                    </h2>
+                    <button className="mt-2  relative cursor-pointer bg-green-100 text-green-700 text-sm font-medium rounded-full px-4 py-1">
+                      Tier One →
+                    </button>
+                  </div>
+                </div>
+
+                {/* User Info */}
+              </div>
+
+              {/* Upgrade Card */}
+              <div className="flex items-center justify-between bg-[#FFEEF2] border border-[#FF3366] rounded-xl px-4 py-3 w-[300px] shadow-sm">
+                <div className="flex items-center gap-2">
+                  <img src={warning} alt="Warning" className="w-12 mt-[2px]" />
+                  <div>
+                    <h3 className="font-semibold text-sm text-gray-800">
+                      Upgrade Account
+                    </h3>
+                    <p className="text-xs text-gray-500">
+                      Upgrade your account to access all features and keep it
+                      secure
+                    </p>
+                  </div>
+                </div>
+                <HiArrowRight className="text-gray-800 w-5 h-5" />
               </div>
             </div>
           )}

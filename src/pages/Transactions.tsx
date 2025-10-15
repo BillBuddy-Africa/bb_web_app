@@ -86,7 +86,7 @@ const Transactions = () => {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as any)}
-              className={`px-5 py-2 cursor-pointer rounded-full font-medium transition-all ${
+              className={`px-5 py-1 cursor-pointer rounded-full font-medium transition-all ${
                 activeTab === tab.id
                   ? "bg-green-500 text-white"
                   : "bg-gray-100 text-gray-600"

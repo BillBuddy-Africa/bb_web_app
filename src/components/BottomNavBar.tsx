@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-// import { LogOut } from "lucide-react"; // optional icon (you can replace)
 import LogOut from "../assets/Sign_out.svg";
 
 const NavBar = () => {
