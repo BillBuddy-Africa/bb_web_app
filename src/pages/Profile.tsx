@@ -1,4 +1,7 @@
 import { useState } from "react";
+import Edit from "../assets/Edit_pen.svg";
+import ProfileSecurity from "../components/profile/ProfileSecurity";
+import ProfileBank from "../components/profile/ProfileBank";
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState<"account" | "security" | "bank">(
@@ -7,9 +10,10 @@ const Profile = () => {
 
   const tabs = [
     { id: "account", label: "Account" },
-    { id: "Security", label: "Security" },
-    { id: "Bank", label: "Bank" },
+    { id: "security", label: "Security" },
+    { id: "bank", label: "Bank" },
   ];
+
   return (
     <>
       {/* Tabs (Sticky Header) */}
@@ -32,8 +36,43 @@ const Profile = () => {
       </div>
 
       {/* Scrollable Transactions */}
-      <div className="bg-white mb-6  rounded-3xl p-6 w-full mx-auto h-[400px] overflow-y-auto">
-        <div>hi</div>
+      <div className="bg-white mb-6  w-full mx-auto h-[400px] overflow-y-auto">
+        {activeTab === "security" && <ProfileSecurity />}
+        {activeTab === "account" && (
+          <div className=" w-[50%] mt-[1rem] md:px-[0.6rem]">
+            <div className="flex items-center justify-between md:mb-[6%] mb-[8%]">
+              <p className="text-[#7688B4] text-[15px]">Username</p>
+              <p className="text-[#27014F] text-[15px]">SamuelO</p>
+            </div>
+
+            <div className="flex items-center justify-between md:mb-[6%] mb-[8%]">
+              <p className="text-[#7688B4] text-[15px]">Unique ID</p>
+              <p className="text-[#27014F] text-[15px]">TWJ123456</p>
+            </div>
+
+            <div className="flex items-center justify-between md:mb-[6%] mb-[8%]">
+              <p className="text-[#7688B4] text-[15px]">Email address</p>
+              <p className="text-[#27014F] text-[15px]">
+                samuel.oghene@example.com
+              </p>
+            </div>
+
+            <div className="flex items-center justify-between md:mb-[6%] mb-[8%]">
+              <p className="text-[#7688B4] text-[15px]">Phone</p>
+              <span className="flex gap-[2px] items-center">
+                <p className="text-[#27014F] text-[15px]">+234 812 345 6789</p>
+                <img src={Edit} alt="Edit" className="cursor-pointer " />
+              </span>
+            </div>
+
+            <div className="flex items-center justify-between md:mb-[7%] mb-[12%]">
+              <p className="text-[#7688B4] text-[15px]">Date of birth</p>
+              <p className="text-[#27014F] text-[15px]">April 15, 1997</p>
+            </div>
+          </div>
+        )}
+
+        {activeTab === "bank" && <ProfileBank />}
       </div>
     </>
   );

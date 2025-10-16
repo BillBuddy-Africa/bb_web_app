@@ -206,14 +206,14 @@ export default function DashboardLayout() {
               </div>
 
               {/* Upgrade Card */}
-              <div className="flex items-center justify-between bg-[#FFEEF2] border border-[#FF3366] rounded-xl px-4 py-3 w-[300px] shadow-sm">
+              <div className="flex items-center justify-between bg-[#FFEEF2] border border-[#FF3366] rounded-xl px-4 py-2 w-[300px] shadow-sm">
                 <div className="flex items-center gap-2">
                   <img src={warning} alt="Warning" className="w-12 mt-[2px]" />
                   <div>
                     <h3 className="font-semibold text-sm text-gray-800">
                       Upgrade Account
                     </h3>
-                    <p className="text-xs text-gray-500">
+                    <p className="text-xs leading-[0.9rem] text-gray-500">
                       Upgrade your account to access all features and keep it
                       secure
                     </p>
