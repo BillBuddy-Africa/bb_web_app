@@ -39,7 +39,7 @@ const Profile = () => {
       <div className="bg-white mb-6  w-full mx-auto h-[400px] overflow-y-auto">
         {activeTab === "security" && <ProfileSecurity />}
         {activeTab === "account" && (
-          <div className=" w-[60%] md:px-[0.6rem]">
+          <div className=" w-[50%] mt-[1rem] md:px-[0.6rem]">
             <div className="flex items-center justify-between md:mb-[6%] mb-[8%]">
               <p className="text-[#7688B4] text-[15px]">Username</p>
               <p className="text-[#27014F] text-[15px]">SamuelO</p>
@@ -61,7 +61,7 @@ const Profile = () => {
               <p className="text-[#7688B4] text-[15px]">Phone</p>
               <span className="flex gap-[2px] items-center">
                 <p className="text-[#27014F] text-[15px]">+234 812 345 6789</p>
-                <img src={Edit} alt="Edit" className="cursor-pointer w-4 h-4" />
+                <img src={Edit} alt="Edit" className="cursor-pointer " />
               </span>
             </div>
 

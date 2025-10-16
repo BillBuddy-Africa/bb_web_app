@@ -2,7 +2,7 @@ import ToggleButton from "./ToggleButton";
 
 const ProfileSecurity = () => {
   return (
-    <div className="mt-[5%] md:mt-[1%] lg:mt-[-1%] w-full  md:w-[60%] lg:w-[50%]">
+    <div className="mt-[1rem]  w-full  md:w-[60%] lg:w-[50%]">
       {/* Update Password */}
       <div className="flex items-center justify-between leading-[1.2rem]">
         <div className="flex mt-[2rem] md:mt-0 flex-col">

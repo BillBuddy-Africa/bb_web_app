@@ -33,9 +33,9 @@ const ProfileBank = () => {
   ];
 
   return (
-    <div className="grid w-[90%] grid-cols-[repeat(auto-fill,_minmax(320px,_1fr))] md:gap-4 gap-6 justify-center">
+    <div className="grid w-[90%] mt-[1rem] grid-cols-[repeat(auto-fill,_minmax(320px,_1fr))] md:gap-4 gap-6 justify-center">
       {/* Add bank button */}
-      <button className="w-full md:h-[182px] h-[220px] md:mt-0 mt-6 border flex flex-col items-center justify-center cursor-pointer border-[#D0DAE6] hover:border-[#8003A9] transition duration-300 rounded-[10px]">
+      <button className="w-full md:h-[182px] h-[220px] md:mt-0 mt-6 border flex flex-col items-center justify-center cursor-pointer border-[#D0DAE6] hover:border-[#0BCE5A] transition duration-300 rounded-[10px]">
         <img src={AddRing} alt="Add Bank" />
         <p className="text-[#0BCE5A]">Add bank account</p>
       </button>
