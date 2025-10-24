@@ -15,9 +15,17 @@ import camera from "../assets/Camera_light.svg";
 import profileImg from "../assets/profile.svg";
 import warning from "../assets/warning.svg";
 import { HiArrowRight } from "react-icons/hi";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { useState } from "react";
+import TopUpModal from "../components/TopUpModal";
+import WithdrawalModal from "../components/WithdrawModal";
 
 export default function DashboardLayout() {
   const location = useLocation();
+  const [showBalance, setShowBalance] = useState(true);
+  const [showTopupModal, setShowTopupModal] = useState(false);
+  const [withdrawalModal, setWithdrawaModal] = useState(false);
+
   const isDashboard = location.pathname === "/dashboard";
   const isWallet = location.pathname === "/wallet";
   const isProfile = location.pathname === "/profile";
@@ -33,6 +41,7 @@ export default function DashboardLayout() {
       {/* Main Content — perfectly centered */}
       <div className="relative flex items-center justify-center h-[calc(100vh-9rem)]    px-4 mt-[4rem]">
         <div className="w-full  h-full max-h-[90%] max-w-7xl flex justify-center items-center gap-6">
+        
           {isDashboard && (
             <div className="flex  flex-col gap-6">
               {/* Green Wallet Card */}
@@ -46,30 +55,60 @@ export default function DashboardLayout() {
 
                 {/* Content above image */}
                 <div className="relative border border-[#0BCE5A] z-10">
-                  <div className="w-10 absolute right-[-7px] top-[-20px] h-10 rounded-full cursor-pointer p-3 bg-[#00A643]  ">
-                    <img src={eye} alt="" />
-                  </div>
+                  {/* Eye toggle button */}
+                  <button
+                    onClick={() => setShowBalance(!showBalance)}
+                    className="w-10 absolute right-[-7px] top-[-20px] h-10 rounded-full cursor-pointer p-3 bg-[#00A643] flex justify-center items-center"
+                  >
+                    {showBalance ? (
+                      <AiOutlineEye className="text-white text-xl" />
+                    ) : (
+                      <AiOutlineEyeInvisible className="text-white text-xl" />
+                    )}
+                  </button>
 
                   <div className="flex mt-4 justify-center items-center ">
                     <h2 className="text-[16px]">Wallet Balance</h2>
                   </div>
                   <div className="flex justify-center items-center ">
                     <p className="text-3xl font-bold mt-3">
-                      ₦1,000,250.
-                      <span className="text-[17px] ml-[-1px]">00</span>
+                      {showBalance ? (
+                        <>
+                          ₦1,000,250.
+                          <span className="text-[17px] ml-[-1px]">00</span>
+                        </>
+                      ) : (
+                        "•••••••"
+                      )}
                     </p>
                   </div>
 
                   <div className="flex gap-4 justify-center mt-5">
-                    <button className="bg-transparent flex justify-center items-center gap-1 cursor-pointer border-white border text-white  rounded-[10px] px-3 py-2 text-sm">
-                      <img src={plus} alt="" />
+                    <button
+                      onClick={() => setShowTopupModal(true)}
+                      className="bg-transparent flex justify-center items-center gap-1 cursor-pointer border-white border text-white  rounded-[10px] px-3 py-2 text-sm"
+                    >
+                      <img src={plus} className="w-3" alt="" />
                       <p> Add Money</p>
                     </button>
-                    <button className="bg-white text-green-600 flex justify-center items-center cursor-pointer gap-1 rounded-[10px] px-3 py-2 text-[16px] ">
+                    <button
+                      onClick={() => setWithdrawaModal(true)}
+                      className="bg-white text-green-600 flex justify-center items-center cursor-pointer gap-1 rounded-[10px] px-3 py-2 text-[16px] "
+                    >
                       <p> Withdraw</p>
-                      <img src={arrow} alt="" />
+                      <img src={arrow} className="w-3 ml-1" alt="" />
                     </button>
                   </div>
+
+                  {/* Modal */}
+                  <TopUpModal
+                    showTopupModal={showTopupModal}
+                    setShowTopupModal={setShowTopupModal}
+                  />
+                  <WithdrawalModal
+                    withdrawalModal={withdrawalModal}
+                    setWithdrawaModal={setWithdrawaModal}
+                  />
                 </div>
               </div>
 
@@ -169,6 +208,7 @@ export default function DashboardLayout() {
               </div>
             </div>
           )}
+
           {isProfile && (
             <div className="flex  h-full flex-col items-center  gap-6">
               {/* Profile Section */}

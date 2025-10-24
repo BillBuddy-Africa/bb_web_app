@@ -13,7 +13,7 @@ const TopNavBar = () => {
       : location.pathname.replace("/", "").replace(/-/g, " ");
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-black text-white flex justify-between items-center px-8 py-3 z-50">
+    <nav className="fixed top-0 left-0 right-0 bg-black text-white flex justify-between items-center px-8 py-3 z-10">
       {/* Left - Logo */}
       <div className="flex items-center gap-2">
         <img src={Logo} alt="" />
