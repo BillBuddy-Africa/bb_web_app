@@ -1,8 +1,8 @@
 import { useState } from "react";
 import AddRing from "../../assets/Add_ring_light.svg";
 import BgImage from "../../assets/atmcard.jpg";
-import BankIcon from "../../assets/bank.svg"; // adjust path as needed
-import DeleteAccount from "../../assets/delete_icon.svg"; // adjust path as needed
+import BankIcon from "../../assets/bank.svg"; 
+import DeleteAccount from "../../assets/delete_icon.svg"; 
 
 const ProfileBank = () => {
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
