@@ -9,7 +9,7 @@ const Flight = () => {
       </span>
 
       <img src={flightimg} alt="Flight" className="w-13 mb-1 " />
-      <span className="text-lg text-left font-medium text-black">Flight</span>
+      <span className="text-lg mt-2 text-left font-medium text-black">Flight</span>
       <p className="text-sm text-left text-[#A2A1A1]">
         Book local and int'l flights
       </p>

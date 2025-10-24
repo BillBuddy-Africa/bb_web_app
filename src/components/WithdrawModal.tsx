@@ -22,10 +22,10 @@ const WithdrawalModal = ({ withdrawalModal, setWithdrawaModal }: any) => {
             <div className="flex flex-col sm:flex-row items-center justify-between w-full">
               <div className="sm:w-[70%] mx-auto w-full flex flex-col justify-center">
                 {/* Available Balance */}
-                <h5 className="text-[#0A2E65]/60 sm:text-[15px] text-[17px]">
+                <h5 className="text-[#0A2E65]/60 text-[17px]">
                   Available Balance
                 </h5>
-                <div className="flex items-center justify-center mt-2">
+                <div className="flex items-center justify-center mt-1">
                   <div className="relative text-[#000] flex items-center gap-2">
                     <span className="mb-[8px] mr-[-5px] text-[16px]">₦</span>
                     <p className="text-[32px] text-center font-semibold">
