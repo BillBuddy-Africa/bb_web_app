@@ -23,7 +23,7 @@ const TopUpModal = ({ showTopupModal, setShowTopupModal }: any) => {
             onClick={() => setShowTopupModal(false)}
             className="absolute top-5 cursor-pointer right-5 text-black"
           >
-            <IoMdClose className="text-2xl" />
+            <IoMdClose className="text-[25px]" />
           </button>
 
           {/* Header */}

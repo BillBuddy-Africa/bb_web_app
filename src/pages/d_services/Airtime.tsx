@@ -1,6 +1,10 @@
 import airtime from "../../assets/Airtime.svg";
 import React, { useState } from "react";
-import { IoClose } from "react-icons/io5";
+import { FiX } from "react-icons/fi";
+import glo from "../../assets/glo-icon 1.svg";
+import mtn from "../../assets/MTN-icon 1 (1).svg";
+import airtel from "../../assets/airtel-icon 1.svg";
+import nineMobile from "../../assets/9mobile-icon 1.svg";
 
 const Airtime = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -19,22 +23,22 @@ const Airtime = () => {
   const images = [
     {
       id: 1,
-      src: "https://upload.wikimedia.org/wikipedia/en/7/70/MTN_Group_logo.svg",
+      src: mtn,
       alt: "MTN",
     },
     {
       id: 2,
-      src: "https://upload.wikimedia.org/wikipedia/en/e/e7/Airtel_logo.svg",
+      src: airtel,
       alt: "Airtel",
     },
     {
       id: 3,
-      src: "https://upload.wikimedia.org/wikipedia/en/0/09/Glo_logo.svg",
+      src: glo,
       alt: "Glo",
     },
     {
       id: 4,
-      src: "https://upload.wikimedia.org/wikipedia/en/f/fd/9mobile_logo.svg",
+      src: nineMobile,
       alt: "9mobile",
     },
   ];
@@ -86,7 +90,7 @@ const Airtime = () => {
       {/* Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/40 z-[50]">
-         <div className="bg-white overflow-y-auto no-scrollbar sm:w-[600px] w-[100vw] sm:h-auto h-[min(100dvh,100vh)] max-h-screen z-[50] py-6 px-4 sm:rounded-[15px] flex flex-col">
+          <div className="bg-white overflow-y-auto no-scrollbar sm:w-[600px] w-[100vw] sm:h-auto h-[min(100dvh,100vh)] max-h-screen z-[50] py-6 px-4 sm:rounded-[15px] flex flex-col">
             {/* Header */}
             <div className="flex items-center justify-between border-b border-b-[#E2E8F0] pb-[1rem]">
               <h3 className="sm:text-[17px] text-[20px] font-semibold tracking-[1px] text-[#000]">
@@ -105,7 +109,7 @@ const Airtime = () => {
                 }}
                 className="cursor-pointer text-black"
               >
-                <IoClose size={25} />
+                <FiX className="text-gray-700 text-[25px]" />
               </button>
             </div>
 
@@ -121,7 +125,7 @@ const Airtime = () => {
                     {images.map((image) => (
                       <div
                         key={image.id}
-                        className={`rounded-full p-[6px] cursor-pointer transition-all ${
+                        className={`rounded-full  cursor-pointer transition-all ${
                           activeImage === image.id
                             ? "border-2 border-[#0BCE5A]"
                             : "border-transparent"
@@ -172,7 +176,7 @@ const Airtime = () => {
                         key={amount}
                         className={`py-[10px] cursor-pointer rounded-[5px] flex justify-center items-center transition-all duration-300 hover:scale-105 ${
                           selectedAmount === amount
-                            ? "bg-[#F2F4FC] border border-[#326CF6] text-[#27014F]"
+                            ? "bg-[#F2FFF7] border border-[#0BCE5A] text-[#27014F]"
                             : "text-[#A4A4A4] border border-[#A4A4A4]"
                         }`}
                         onClick={() => handleAmountClick(amount)}

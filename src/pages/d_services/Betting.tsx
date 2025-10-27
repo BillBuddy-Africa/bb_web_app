@@ -2,7 +2,7 @@ import Bettingimg from "../../assets/Betting.svg";
 import React, { useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { FaCheckCircle } from "react-icons/fa";
-import { FiChevronDown } from "react-icons/fi";
+import { FiChevronDown, FiX } from "react-icons/fi";
 
 const Betting = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -76,7 +76,7 @@ const Betting = () => {
                 }}
                 className=" cursor-pointer text-black"
               >
-                <IoClose size={22} />
+                <FiX className="text-gray-700 text-[25px]" />
               </button>
             </div>
 
