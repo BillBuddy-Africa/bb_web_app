@@ -19,16 +19,31 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useState } from "react";
 import TopUpModal from "../components/TopUpModal";
 import WithdrawalModal from "../components/WithdrawModal";
+import { FiCopy } from "react-icons/fi";
+import giftImg from "../assets/giftbox-blue.svg";
 
 export default function DashboardLayout() {
   const location = useLocation();
   const [showBalance, setShowBalance] = useState(true);
   const [showTopupModal, setShowTopupModal] = useState(false);
   const [withdrawalModal, setWithdrawaModal] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const referralLink = "https://app.billbuddy.africa/signup?ref=12345";
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(referralLink);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy text:", err);
+    }
+  };
 
   const isDashboard = location.pathname === "/dashboard";
   const isWallet = location.pathname === "/wallet";
   const isProfile = location.pathname === "/profile";
+  const referral = location.pathname === "/referral";
 
   return (
     <div className="relative min-h-screen bg-[#f8f9fb] overflow-hidden">
@@ -41,7 +56,6 @@ export default function DashboardLayout() {
       {/* Main Content — perfectly centered */}
       <div className="relative flex items-center justify-center h-[calc(100vh-9rem)]    px-4 mt-[4rem]">
         <div className="w-full  h-full max-h-[90%] max-w-7xl flex justify-center items-center gap-6">
-        
           {isDashboard && (
             <div className="flex  flex-col gap-6">
               {/* Green Wallet Card */}
@@ -262,6 +276,65 @@ export default function DashboardLayout() {
                 <HiArrowRight className="text-gray-800 w-5 h-5" />
               </div>
             </div>
+          )}
+
+          {referral && (
+            <>
+              <div className="flex  h-full flex-col items-center  gap-6">
+                {/* Profile Section */}
+                <div className="bg-white relative shadow-md rounded-2xl p-6 px flex flex-col items-center text-center w-[350px] sm:w-[330px]">
+                  {/* Image */}
+                  <img src={giftImg} alt="Gift" className="mb-4" />
+
+                  {/* Heading */}
+                  <h2 className="text-[#27014F] font-semibold text-lg mb-1">
+                    Get fee waivers
+                  </h2>
+
+                  {/* Description */}
+                  <p className="text-[#6B7280] text-sm mb-5">
+                    Enjoy zero fees on transactions when your friends sign up
+                    with your referral code.
+                  </p>
+
+                  {/* Copy Link Section */}
+                  <div className="flex items-center border border-gray-200 rounded-lg overflow-hidden mb-4 w-full">
+                    <input
+                      type="text"
+                      readOnly
+                      value={referralLink}
+                      className="flex-1 px-3 py-2 text-sm text-gray-600 bg-transparent outline-none"
+                    />
+                    <button
+                      onClick={handleCopy}
+                      className="bg-[#00C853] cursor-pointer hover:bg-[#00b24c] text-white p-3 flex items-center justify-center transition-colors"
+                    >
+                      <FiCopy className="text-lg" />
+                    </button>
+                  </div>
+
+                  {/* Copy Feedback */}
+                  {copied && (
+                    <p className="text-green-600 absolute bottom-4 right-4 text-sm mt-2 font-medium">
+                      Link copied!
+                    </p>
+                  )}
+                </div>
+
+                {/* Upgrade Card */}
+                <div className="flex items-center justify-center bg-[#F2FFF7] border border-[#0BCE5A] rounded-xl px-4 py-2 w-[330px] shadow-sm">
+                  <div className="flex items-center flex-col py-2 gap-1">
+                    <p className="text-[13px]">Referral Bonus</p>
+                    <div className=" relative flex justify-center items-center">
+                      <span className="text-[13px] absolute left-[-10px] bottom-0.5 font-bold">₦</span> <span className="text-[20px] font-bold">120,000</span>
+                    </div>
+                    <button className="text-[#0BCE5A] text-[13px]">
+                      Make Withdrawal
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </>
           )}
 
           {/* Right white card */}

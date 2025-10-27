@@ -47,11 +47,11 @@ const TopUpModal = ({ showTopupModal, setShowTopupModal }: any) => {
 
             <div className="flex justify-between mb-4 items-center">
               <p>Account Number</p>
-              <div className="flex items-center text-[#8003A9] gap-2 relative">
+              <div className="flex items-center text-[#0BCE5A] gap-2 relative">
                 <span>1234567890</span>
                 <button
                   onClick={handleCopy}
-                  className="cursor-pointer text-[#8003A9] hover:text-[#5d0080]"
+                  className="cursor-pointer text-[#0BCE5A] hover:text-[#0BCE5A]/80"
                 >
                   <FaRegCopy className="text-lg" />
                 </button>

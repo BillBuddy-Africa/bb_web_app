@@ -9,7 +9,7 @@ const NavBar = () => {
     "Profile",
     "Rates",
     "Referral",
-    "support",
+    // "support",
   ];
 
   return (
