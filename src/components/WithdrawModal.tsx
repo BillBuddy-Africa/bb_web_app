@@ -12,7 +12,7 @@ const WithdrawalModal = ({ withdrawalModal, setWithdrawaModal }: any) => {
             onClick={() => setWithdrawaModal(false)}
             className="p-2 sm:mr-[5px] mr-[-10px] cursor-pointer"
           >
-            <FiX className="text-gray-700 text-[22px]" />
+            <FiX className="text-gray-700 text-[25px]" />
           </button>
         </div>
 
